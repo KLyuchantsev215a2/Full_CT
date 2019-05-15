@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{6989167D-11E4-40FE-8C1A-2192A86A7E90}") = "FullCT_1", "FullCT_1.vfproj", "{8C3963AC-98F8-4365-8938-1D4B753A6364}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C3963AC-98F8-4365-8938-1D4B753A6364}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8C3963AC-98F8-4365-8938-1D4B753A6364}.Debug|Win32.Build.0 = Debug|Win32
+		{8C3963AC-98F8-4365-8938-1D4B753A6364}.Release|Win32.ActiveCfg = Release|Win32
+		{8C3963AC-98F8-4365-8938-1D4B753A6364}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
