@@ -98,7 +98,7 @@
     m=rho_0*S/N
     
     k=136000.0d0
-    damping=0.0d0
+    damping=10000.0d0
     eta=0.1
     YieldStress=335.0d0
     E=9.0*k*mu/(3.0*k+mu)
@@ -148,7 +148,7 @@
         read (1, 1110) a,x(1,i),x(2,i)
     enddo
       
-    h=1.0*sqrt(m/rho_0)
+    h=1.2*sqrt(m/rho_0)
     vol=m/rho_0
        
     max_h=h(1)
@@ -164,11 +164,11 @@
     do i=1,N
          
 
-    if((x(1,i)<0.1)*(x(2,i)>0.5)) then
+    if((x(1,i)<0.1)*(x(2,i)>0.5)+(x(1,i)<0.1)*(x(2,i)<-0.5)) then
             count_hole=count_hole+1
         end if
         
-        if ( (x(1,i)>=0.7-2.0d0*h(2))*(x(2,i)<=2.0d0*h(2)))     then
+        if ( (x(1,i)>=0.7)*(x(2,i)==0)) then
                 count_section=count_section+1
         end if
         
@@ -181,13 +181,13 @@
     k2=1
     do i=1,N
         
-    if((x(1,i)<0.1)*(x(2,i)>0.5))then     
+    if((x(1,i)<0.1)*(x(2,i)>0.5)+(x(1,i)<0.1)*(x(2,i)<-0.5))then     
                 index_hole(k1)=i
                 k1=k1+1
         end if
         
         
-        if ( (x(1,i)>=0.7-2.0d0*h(2))*(x(2,i)<=2.0d0*h(2)))     then
+        if ( (x(1,i)>=0.7)*(x(2,i)==0))     then
                 index_section(k2)=i                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
                 k2=k2+1
         end if
@@ -209,16 +209,21 @@
         call Compute_Acceleration(cs,N,h,dh,rho_0,mu,k,eta,damping,vol,F,Couchy,PK1,x_0,x_init,v,nabla_W_0,nabla_W,W,Wper1,Wper2,Wper3,Wper4,acc,count_hole,count_section,index_section,index_hole,Ci,Ci_new,table,YieldStress)
         v=v+dt*acc
         x=x+dt*v
-        
+        !call plot_init(x,N,count_hole,count_section,index_section,index_hole)
         time_calculated=(real(step)*dt)
         
         do k2=1,count_hole
-            x(2,index_hole(k2))=x_init(2,index_hole(k2))+0.02*0.5*(1-cos(pi*time_calculated))
+            if(x(2,index_hole(k2))>0) then
+                x(2,index_hole(k2))=x_init(2,index_hole(k2))+0.02*0.5*(1-cos(pi*time_calculated))
+            endif
+            if(x(2,index_hole(k2))<0) then
+                x(2,index_hole(k2))=x_init(2,index_hole(k2))-0.02*0.5*(1-cos(pi*time_calculated))
+            endif
         enddo  
         
-        do k1=1,count_section
-            x(2,index_section(k1))=x_init(2,index_section(k1))
-        enddo
+      !  do k1=1,count_section
+       !     x(2,index_section(k1))=x_init(2,index_section(k1))
+       ! enddo
         
        !do k1=1,400,20
       !    x(1,k1)=x_init(1,k1);
