@@ -47,8 +47,8 @@
 	<Files>
 		<Filter Name="Header Files" Filter="fi;fd;h;inc"/>
 		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
-		<File RelativePath=".\2.txt"/>
-		<File RelativePath=".\FULL.txt"/></Filter>
+		<File RelativePath=".\4095.txt"/>
+		<File RelativePath=".\1763.txt"/></Filter>
 		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
 		<File RelativePath=".\base.f90"/>
 		<File RelativePath=".\Compute_Acceleration.f90"/>

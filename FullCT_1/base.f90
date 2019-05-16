@@ -81,7 +81,7 @@
       
      end interface
     
-    open (unit=1, file="FULL.txt")
+    open (unit=1, file="1763.txt")
     open (unit=2, file="output_x.txt", action='write')
     open (unit=3, file="output_C.txt", action='write')
     
@@ -94,7 +94,7 @@
     pi=3.14159265359
     
     coutfr=1
-    S=1.25d0*0.6d0
+    S=1.25d0*1.2d0
     m=rho_0*S/N
     
     k=136000.0d0
@@ -105,7 +105,7 @@
 
     cs=sqrt((k+4.0/3.0*mu)/rho_0)
     
-    dt=0.00001d0!CFL*h/(cs_0)
+    dt=0.000001d0!CFL*h/(cs_0)
     fr=int(T/dt/50)
 
     allocate(vol(N))
@@ -148,7 +148,7 @@
         read (1, 1110) a,x(1,i),x(2,i)
     enddo
       
-    h=1.2*sqrt(m/rho_0)
+    h=1.0*sqrt(m/rho_0)
     vol=m/rho_0
        
     max_h=h(1)

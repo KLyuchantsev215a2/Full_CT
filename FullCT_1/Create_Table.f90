@@ -23,7 +23,7 @@ subroutine Create_Table(x,h,table,N,dh)
         neighbour=Compute_W(xi,xj,h(i)+2*dh,h(j)+2*dh) 
            
             if (neighbour>0) then
-                 if(((x(1,i)>=0.7)+(x(1,j)>=0.7)+(x(2,i)*x(2,j)>0)+(i==j))/=0) then
+                 if((abs((x(1,i)>=0.7))+abs((x(1,j)>=0.7))+abs((x(2,i)*x(2,j)>0))+abs(i==j))/=0) then
                     cout=cout+1
                     table(i,cout+1)=j
                 endif
