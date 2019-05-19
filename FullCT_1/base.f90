@@ -98,14 +98,14 @@
     m=rho_0*S/N
     
     k=136000.0d0
-    damping=10000.0d0
-    eta=0.1
+    damping=8000.0d0
+    eta=1.0
     YieldStress=335.0d0
     E=9.0*k*mu/(3.0*k+mu)
 
     cs=sqrt((k+4.0/3.0*mu)/rho_0)
     
-    dt=0.000001d0!CFL*h/(cs_0)
+    dt=0.00001d0!CFL*h/(cs_0)
     fr=int(T/dt/50)
 
     allocate(vol(N))
@@ -194,7 +194,7 @@
         
     enddo
     x_init=x
-    call plot_init(x,N,count_hole,count_section,index_section,index_hole)
+    
    
    
    call Compute_nabla_W(x,h,vol,N,W,Wper1,Wper2,Wper3,Wper4,nabla_W_0,dh,table)!tmp
@@ -202,7 +202,8 @@
    Ci=F
    call OneStepPlasticity(F,mu,k,eta,dt,Ci,N,Couchy,Ci_new,PK1,YieldStress)
    Ci(1:2,1:2,1:N)=Ci_new(1:2,1:2,1:N)
-    
+   
+    call plot_init(x,N,count_hole,count_section,index_section,index_hole)
     do step=1,int(T/dt)
         x_0=x
         v_0_0=v

@@ -52,7 +52,7 @@ subroutine Compute_Acceleration(cs,N,h,dh,rho_0,mu,k,eta,damping,vol,F,Couchy,PK
         enddo
 
         do alpha=1,2
-           ! Pi_ij=Compute_Viscosity(h(i),h(table(i,j+1)),cs,rho_0,x(1:2,i),v_old(1:2,i),x(1:2,table(i,j+1)),v_old(1:2,table(i,j+1)))
+            !Pi_ij=Compute_Viscosity(h(1),h(1),cs,rho_0,x(1:2,i),v_old(1:2,i),x(1:2,table(i,j+1)),v_old(1:2,table(i,j+1)))
            ! acc(alpha,i)=acc(alpha,i)+Pi_ij*nabla_W_0(beta,table(i,j+1),i)*(vol(table(i,j+1)))
             acc(alpha,i)=acc(alpha,i)-damping*v_old(alpha,i)
             acc(alpha,i)=acc(alpha,i)/rho_0
