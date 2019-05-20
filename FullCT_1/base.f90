@@ -81,7 +81,7 @@
       
      end interface
     
-    open (unit=1, file="1763.txt")
+    open (unit=1, file="24391.txt")
     open (unit=2, file="output_x.txt", action='write')
     open (unit=3, file="output_C.txt", action='write')
     
@@ -302,8 +302,8 @@
     !1110 format (1f22.0,1f23.0)
  !   1111 format (3f10.6)
  !   1112 format (4f10.6)
- 1100 format (7f10.6,1i4)
- 1113 format ("Density "1f12.6,/,"Time "1f10.6,/,"Poisson's ratio " 1f10.6,/,"Shear modulus " 1f15.6,/,"Side of a square " 1f10.6,/,"For finite difference " 1f10.6,/,"CFL " 1f10.6,/,"Particle count " 1i4)
+ 1100 format (7f10.6,1i5)
+ 1113 format ("Density "1f12.6,/,"Time "1f10.6,/,"Poisson's ratio " 1f10.6,/,"Shear modulus " 1f15.6,/,"Side of a square " 1f10.6,/,"For finite difference " 1f10.6,/,"CFL " 1f10.6,/,"Particle count " 1i5)
  1110 format (1i12,1f24.0,1f21.0)
  1111 format (3f10.6)
  1112 format (3f13.6)
